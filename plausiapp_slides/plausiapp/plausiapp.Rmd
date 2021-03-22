@@ -1,0 +1,111 @@
+---
+title: "PlausiApp"
+subtitle: "Plausibilisierung am Abstimmungssonntag mit R & Shiny"
+author: 'Thomas Lo Russo'
+date: '22.03.2021<br><br><br><a href="https://twitter.com/statistik_zh" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i>@statistik_zh</a>'
+output:
+  xaringan::moon_reader:
+    css: 
+    - lib/zh_cd_city.css
+    - lib/hygge.css
+    - "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    - "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      ## Mit Option "slideNumberFormat" ENTWEDER Foliennummerieung ODER ProgressBar einfügen ##
+      # (Raute wie gewünscht setzten od. entfernen)
+      # Bsp. Foliennummerierung:
+      # slideNumberFormat: "%current%"                   # 12
+      # slideNumberFormat: "%current%/%total%"           # 12/42
+      # Bsp. PogressBar: 
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+      # Countdown einfügen
+      #countdown: 60000  # Countdown 1 min pro Slide
+---
+
+# PlausiApp
+
+Die PlausiApp dient am Abstimmungssonntag der systematischen Identifikation von Anomalien in den Resultaten.
+
+### Ziele
+
+- Routinefehler frühzeitig erkennen
+- Entlastung Plausi-Team
+- Erhöhung der Qualität in der Resultatermittlung
+
+### Statistikgestützte Plausibilisierung am Abstimmungssonntag
+
+**Methodik**
+
+- Ausreissererkennung
+- Vorhersage / Simulation der Zustimmungsmuster via Machine Learning
+
+---
+
+# Architektur
+
+![hier](plausiapp.PNG)
+
+---
+
+# Vorhersage Ja-Anteile
+
+Sobald eine handvoll Gebiete ausgezählt sind kann eine Vorhersage der Endresultate für alle Gebiete gemacht werden. 
+
+```{r eval=FALSE}
+library(plausi)
+
+predict_votes(votes=c("Eidg1","Kant1"), 
+              train=votedata, 
+              exclude_votes=TRUE)
+```
+→ Alle via [caret package](http://topepo.github.io/caret/index.html) verfügbaren Modelle können verwendet werden.
+
+**Vergleich Vorhersage VS tatsächliches Resultat**
+
+Höhere Abweichungen zwischen dem tatsächlichen und dem prognostizierten Ja-Anteil können auf Fehler hinweisen. 
+
+---
+
+# Vorhersage Ja-Anteile
+
+
+![hier](plausiapp2.PNG)
+
+---
+background-image: url(lib/Hintergrundbild2.jpg)
+class: center, middle, inverse
+
+# ML / AI
+
+Bestehen Projekte oder Ideen für potentielle Anwendungfälle?
+
+Besteht Interesse an Austausch / Weiterbildung in dem Bereich?
+
+---
+background-image: url(lib/Hintergrundbild2.jpg)
+class: center, middle, inverse
+
+# [Datenwerkstatt / R-Kurse](https://www.zh.ch/de/politik-staat/statistik-daten/datenwerkstatt.html)
+
+# [Landingpage R-Austausch](https://github.com/statistikZH/rstats_ktzh/blob/master/README.md)
+
+---
+background-image: url(lib/Hintergrundbild2.jpg)
+class: center, middle, inverse
+
+<div class="contact">
+<a href="https://twitter.com/statistik_zh" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i>@statistik_zh</a><br> 
+<a href="https://github.com/statistikZH"><i class="fa fa-github fa-fw"></i>Statistisches Amt Kanton Zürich</a><br> 
+<a href="mailto:datashop@statistik.zh.ch"><i class="fa fa-paper-plane fa-fw"></i>datashop@statistik.zh.ch</a><br>
+
+
+
+
