@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>swissdd</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Thomas Lo Russo" />
+    <meta name="date" content="2021-09-03" />
+    <script src="index_files/header-attrs/header-attrs.js"></script>
+    <link href="index_files/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="index_files/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="logo.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center middle
+
+
+
+
+
+
+&lt;center&gt;&lt;img src="https://raw.githubusercontent.com/politanch/swissdd/master/swissdd_noborder.png" height="400px" /&gt;&lt;/center&gt;
+
+## the swiss direct democracy R-package
+
+&lt;a href="https://politanch.github.io/swissdd/index.html" style="text-decoration: none; border-bottom:"&gt;&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;politanch/swissdd&lt;/a&gt; 
+
+&lt;a href="https://twitter.com/thlorusso" style="text-decoration: none; border-bottom:"&gt;&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;@thlorusso&lt;/a&gt;
+&lt;a href="https://twitter.com/politanch" style="text-decoration: none; border-bottom:"&gt; / @politanch&lt;/a&gt;&lt;br&gt; 
+---
+name: colors
+
+
+## About
+
+__Swissdd in one sentence:__
+
+&gt; a one stop shop for data on popular votes in Switzerland
+
+&lt;br&gt;
+
+- Realtime data stream on vote sundays (cantonal &amp; national votes)
+
+- Archive of harmonized results of national votes since 1981
+
+- Geodata of administrative boundaries
+
+- The complete SwissVotes-Database
+
+&lt;center&gt;&lt;img src="https://blog.digithek.ch/wp-content/uploads/opendata-swiss_logo.png" height="80px" /&gt;&lt;/center&gt;
+&lt;br&gt;
+&lt;center&gt;&lt;img src="https://swissvotes.ch/static/images/logo.svg" height="80px" /&gt;&lt;/center&gt;
+
+???
+
+Swissvotes : Vorabstimmung NR / Kampagnen
+
+---
+## About
+
+- community driven development (mainly by former [politan.ch](politan.ch) Bloggers) 
+
+- first github version in January 2019 / Available on [CRAN](https://cran.r-project.org/web/packages/swissdd/index.html) since mid 2019 
+
+- nine [releases](https://github.com/politanch/swissdd/releases) since then
+
+## Use cases
+
+
+### [Tamedia-Projections](https://interaktiv.tagesanzeiger.ch/2021/06/abstimmungs-hochrechnungen/) 
+
+&lt;img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.unitycms.io%2Fimage%2F6EYm_qD545gBJZGFENk-Qy.gif&amp;f=1&amp;nofb=1" height="80px" /&gt;
+
+&gt; Merci vielmals für das swissdd #Rstats package - hat das ganze viel einfacher gemacht  @politan_ch
+ &gt; @thlorusso @thw_ch und auch danke ans @StatSchweiz für tolle API #opensource
+
+https://twitter.com/LucasLeemann/status/1226526006695071745
+---
+
+# realtime data on vote-sundays 
+### national votes
+
+
+```r
+swissdd::get_nationalvotes(geolevel = "district")
+```
+
+```
+## # A tibble: 775 x 15
+##    name      id canton_id canton_name district_id district_name gebietAusgezaeh…
+##    &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;         &lt;lgl&gt;           
+##  1 Volks…  6410 1         Zürich      101         Bezirk Affol… TRUE            
+##  2 Volks…  6410 1         Zürich      102         Bezirk Andel… TRUE            
+##  3 Volks…  6410 1         Zürich      103         Bezirk Bülach TRUE            
+##  4 Volks…  6410 1         Zürich      104         Bezirk Diels… TRUE            
+##  5 Volks…  6410 1         Zürich      105         Bezirk Hinwil TRUE            
+##  6 Volks…  6410 1         Zürich      106         Bezirk Horgen TRUE            
+##  7 Volks…  6410 1         Zürich      107         Bezirk Meilen TRUE            
+##  8 Volks…  6410 1         Zürich      108         Bezirk Pfäff… TRUE            
+##  9 Volks…  6410 1         Zürich      109         Bezirk Uster  TRUE            
+## 10 Volks…  6410 1         Zürich      110         Bezirk Winte… TRUE            
+## # … with 765 more rows, and 8 more variables: jaStimmenInProzent &lt;dbl&gt;,
+## #   jaStimmenAbsolut &lt;int&gt;, neinStimmenAbsolut &lt;int&gt;,
+## #   stimmbeteiligungInProzent &lt;dbl&gt;, eingelegteStimmzettel &lt;int&gt;,
+## #   anzahlStimmberechtigte &lt;int&gt;, gueltigeStimmen &lt;int&gt;, votedate &lt;date&gt;
+```
+
+---
+# realtime data on vote-sundays 
+### cantonal votes
+
+
+```r
+swissdd::get_cantonalvotes(geolevel = "district")
+```
+
+```
+## # A tibble: 155 x 17
+##        id canton_name district_id district_name      gebietAusgezaehlt
+##     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;              &lt;lgl&gt;            
+##  1 211697 ZH          101         Bezirk Affoltern   TRUE             
+##  2 211697 ZH          102         Bezirk Andelfingen TRUE             
+##  3 211697 ZH          103         Bezirk Bülach      TRUE             
+##  4 211697 ZH          104         Bezirk Dielsdorf   TRUE             
+##  5 211697 ZH          105         Bezirk Hinwil      TRUE             
+##  6 211697 ZH          106         Bezirk Horgen      TRUE             
+##  7 211697 ZH          107         Bezirk Meilen      TRUE             
+##  8 211697 ZH          108         Bezirk Pfäffikon   TRUE             
+##  9 211697 ZH          109         Bezirk Uster       TRUE             
+## 10 211697 ZH          110         Bezirk Winterthur  TRUE             
+## # … with 145 more rows, and 12 more variables: jaStimmenInProzent &lt;dbl&gt;,
+## #   jaStimmenAbsolut &lt;int&gt;, neinStimmenAbsolut &lt;int&gt;,
+## #   stimmbeteiligungInProzent &lt;dbl&gt;, eingelegteStimmzettel &lt;int&gt;,
+## #   anzahlStimmberechtigte &lt;int&gt;, gueltigeStimmen &lt;int&gt;, de &lt;chr&gt;, fr &lt;chr&gt;,
+## #   it &lt;chr&gt;, rm &lt;chr&gt;, votedate &lt;date&gt;
+```
+---
+# Maps
+
+
+```r
+swissdd::plot_nationalvotes(votedate = "2014-02-09",vote_id = 5800, geolevel = "canton")
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-4-1.png" width="100%" /&gt;
+---
+# Archive
+
+
+```r
+swiss_data &lt;-swissdd::get_nationalvotes(from_date="1990-06-01", geolevel="national")
+
+library(ggplot2)
+
+ggplot(swiss_data, aes(votedate, stimmbeteiligungInProzent))+
+  geom_point()+
+  geom_smooth()+
+  theme_minimal()+
+  labs(y="Stimmbeteiligung (%)", x="")
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-5-1.png" width="60%" /&gt;
+
+---
+
+
+https://politanch.github.io/swissdd/index.html
+
+
+---
+# Outlook 
+
+- Maintaince of the CRAN version 
+
+- 
+
+---
+
+---
+
+- the swissdd-story
+
+- functionality
+
+- Use-cases
+
+- future &amp; colaboration
+
+Ausblick zu Weiterentwicklung &amp; Unterhalt, inkl. Aufruf zur Mitarbeit 
+
+---
+class: center, middle, inverse
+
+# Thanks!
+
+@StatSchweiz
+@DavidZumbach
+
+Slides created via the R packages:
+
+[**xaringan**](https://github.com/yihui/xaringan)&lt;br&gt;
+[gadenbuie/xaringanthemer](https://github.com/gadenbuie/xaringanthemer)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

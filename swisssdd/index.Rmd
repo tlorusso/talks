@@ -1,0 +1,181 @@
+---
+title: "swissdd"
+subtitle: "the swiss direct democracy R package"  
+author: 
+  - "Thomas Lo Russo"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, logo.css]
+    nature:
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
+    seal: false
+---
+class: center middle
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width=9, fig.height=3.5, fig.retina=3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE
+)
+```
+
+```{r, include=FALSE}
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+
+xaringanthemer::style_duo(
+  primary_color = "#FFFFFF",
+  secondary_color = "#EC6608",
+  inverse_header_color = "#FFFFFF",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "300", "300i"),
+  code_font_google   = google_font("Fira Mono")
+)
+
+```
+<center><img src="https://raw.githubusercontent.com/politanch/swissdd/master/swissdd_noborder.png" height="400px" /></center>
+
+## the swiss direct democracy R-package
+
+<a href="https://politanch.github.io/swissdd/index.html" style="text-decoration: none; border-bottom:"><i class="fa fa-github fa-fw"></i>politanch/swissdd</a> 
+
+<a href="https://twitter.com/thlorusso" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i>@thlorusso</a>
+<a href="https://twitter.com/politanch" style="text-decoration: none; border-bottom:"> / @politanch</a><br> 
+---
+name: colors
+
+
+## About
+
+__Swissdd in one sentence:__
+
+> a one stop shop for data on popular votes in Switzerland
+
+<br>
+
+- Realtime data stream on vote sundays (cantonal & national votes)
+
+- Archive of harmonized results of national votes since 1981
+
+- Geodata of administrative boundaries
+
+- The complete SwissVotes-Database
+
+<center><img src="https://blog.digithek.ch/wp-content/uploads/opendata-swiss_logo.png" height="80px" /></center>
+<br>
+<center><img src="https://swissvotes.ch/static/images/logo.svg" height="80px" /></center>
+
+???
+
+Swissvotes : Vorabstimmung NR / Kampagnen
+
+---
+## About
+
+- community driven development (mainly by former [politan.ch](politan.ch) Bloggers) 
+
+- first github version in January 2019 / Available on [CRAN](https://cran.r-project.org/web/packages/swissdd/index.html) since mid 2019 
+
+- nine [releases](https://github.com/politanch/swissdd/releases) since then
+
+## Use cases
+
+
+### [Tamedia-Projections](https://interaktiv.tagesanzeiger.ch/2021/06/abstimmungs-hochrechnungen/) 
+
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.unitycms.io%2Fimage%2F6EYm_qD545gBJZGFENk-Qy.gif&f=1&nofb=1" height="80px" />
+
+> Merci vielmals für das swissdd #Rstats package - hat das ganze viel einfacher gemacht  @politan_ch
+ > @thlorusso @thw_ch und auch danke ans @StatSchweiz für tolle API #opensource
+
+https://twitter.com/LucasLeemann/status/1226526006695071745
+---
+
+# realtime data on vote-sundays 
+### national votes
+
+```{r}
+swissdd::get_nationalvotes(geolevel = "district")
+```
+
+---
+# realtime data on vote-sundays 
+### cantonal votes
+
+```{r}
+swissdd::get_cantonalvotes(geolevel = "district")
+```
+---
+# Maps
+
+```{r out.width="100%"}
+swissdd::plot_nationalvotes(votedate = "2014-02-09",vote_id = 5800, geolevel = "canton")
+```
+---
+# Archive
+
+```{r out.width="60%"}
+swiss_data <-swissdd::get_nationalvotes(from_date="1990-06-01", geolevel="national")
+
+library(ggplot2)
+
+ggplot(swiss_data, aes(votedate, stimmbeteiligungInProzent))+
+  geom_point()+
+  geom_smooth()+
+  theme_minimal()+
+  labs(y="Stimmbeteiligung (%)", x="")
+```
+
+---
+
+
+https://politanch.github.io/swissdd/index.html
+
+
+---
+# Outlook & Challenges
+
+- CRAN version 
+
+- 
+
+---
+
+---
+
+- the swissdd-story
+
+- functionality
+
+- Use-cases
+
+- future & colaboration
+
+Ausblick zu Weiterentwicklung & Unterhalt, inkl. Aufruf zur Mitarbeit 
+
+---
+class: center, middle, inverse
+
+# Thanks!
+
+@StatSchweiz
+@DavidZumbach
+
+Slides created via the R packages:
+
+[**xaringan**](https://github.com/yihui/xaringan)<br>
+[gadenbuie/xaringanthemer](https://github.com/gadenbuie/xaringanthemer)
