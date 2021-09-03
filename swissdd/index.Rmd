@@ -67,13 +67,13 @@ __Swissdd in one sentence:__
 
 <br>
 
-- Realtime data stream on vote sundays (cantonal & national votes)
+- Realtime data stream on vote sundays ([cantonal](https://opendata.swiss/de/dataset/echtzeitdaten-am-abstimmungstag-zu-kantonalen-abstimmungsvorlagen) & [national votes](https://opendata.swiss/de/dataset/echtzeitdaten-am-abstimmungstag-zu-eidgenoessischen-abstimmungsvorlagen/)) 
 
 - Archive of harmonized results of national votes since 1981
 
-- Geodata of administrative boundaries
+- [Geodata](https://opendata.swiss/de/dataset/geodaten-zu-den-eidgenoessischen-abstimmungsvorlagen) of administrative boundaries
 
-- The complete SwissVotes-Database
+- The complete [SwissVotes-Database](https://swissvotes.ch/page/dataset)
 
 <center><img src="https://blog.digithek.ch/wp-content/uploads/opendata-swiss_logo.png" height="80px" /></center>
 <br>
@@ -86,14 +86,13 @@ Swissvotes : Vorabstimmung NR / Kampagnen
 ---
 ## About
 
-- community driven development (mainly by former [politan.ch](politan.ch) Bloggers) 
+- community driven development (mainly by former [politan.ch](http://politan.ch) Bloggers) 
 
 - first github version in January 2019 / Available on [CRAN](https://cran.r-project.org/web/packages/swissdd/index.html) since mid 2019 
 
 - nine [releases](https://github.com/politanch/swissdd/releases) since then
 
 ## Use cases
-
 
 ### [Tamedia-Projections](https://interaktiv.tagesanzeiger.ch/2021/06/abstimmungs-hochrechnungen/) 
 
@@ -105,7 +104,7 @@ Swissvotes : Vorabstimmung NR / Kampagnen
 https://twitter.com/LucasLeemann/status/1226526006695071745
 ---
 
-# realtime data on vote-sundays 
+# Realtime data on vote-sundays 
 ### national votes
 
 ```{r}
@@ -113,7 +112,7 @@ swissdd::get_nationalvotes(geolevel = "district")
 ```
 
 ---
-# realtime data on vote-sundays 
+# Realtime data on vote-sundays 
 ### cantonal votes
 
 ```{r}
@@ -141,41 +140,25 @@ ggplot(swiss_data, aes(votedate, stimmbeteiligungInProzent))+
 ```
 
 ---
+# Outlook
 
+- Ongoing maintenance to keep a stable Version on CRAN
 
-https://politanch.github.io/swissdd/index.html
+- Integration of further data sources
 
+- Changes in the data sources - lead to errors
 
----
-# Outlook & Challenges
-
-- CRAN version 
-
-- 
-
----
-
----
-
-- the swissdd-story
-
-- functionality
-
-- Use-cases
-
-- future & colaboration
-
-Ausblick zu Weiterentwicklung & Unterhalt, inkl. Aufruf zur Mitarbeit 
+Contibutions are welcome!
 
 ---
 class: center, middle, inverse
 
-# Thanks!
+<a href="https://politanch.github.io/swissdd/index.html" style="color: #095484;text-decoration: none; border-bottom:"><i class="fa fa-github fa-fw"></i>politanch/swissdd</a> <br>
 
-@StatSchweiz
-@DavidZumbach
+# Thanks for your attention!
 
 Slides created via the R packages:
 
-[**xaringan**](https://github.com/yihui/xaringan)<br>
-[gadenbuie/xaringanthemer](https://github.com/gadenbuie/xaringanthemer)
+<a href="https://github.com/yihui/xaringan" style="color: #095484;text-decoration: none; border-bottom:"><i class="fa fa-github fa-fw"></i>yihui/xaringan</a> <br>
+<a href="https://github.com/gadenbuie/xaringanthemer" style="color: #095484;text-decoration: none; border-bottom:"><i class="fa fa-github fa-fw"></i>gadenbuie/xaringanthemer</a> 
+
