@@ -118,12 +118,7 @@ swissdd::get_nationalvotes(geolevel = "district")
 ```{r}
 swissdd::get_cantonalvotes(geolevel = "district")
 ```
----
-# Maps
 
-```{r out.width="100%"}
-swissdd::plot_nationalvotes(votedate = "2014-02-09",vote_id = 5800, geolevel = "canton")
-```
 ---
 # Archive
 
@@ -140,9 +135,16 @@ ggplot(swiss_data, aes(votedate, stimmbeteiligungInProzent))+
 ```
 
 ---
+# Maps
+
+```{r out.width="100%"}
+swissdd::plot_nationalvotes(votedate = "2014-02-09",vote_id = 5800, geolevel = "canton")
+```
+
+---
 # Outlook
 
-- Ongoing maintenance to keep a stable version on CRAN
+- Ongoing maintenance to keep a stable version on github / CRAN
 
 --
 
@@ -150,7 +152,7 @@ ggplot(swiss_data, aes(votedate, stimmbeteiligungInProzent))+
 
 --
 
-__**Contributions are welcome!**__
+__**Contributions & ideas for further improvement are welcome!**__
 
 ---
 class: center, middle, inverse
