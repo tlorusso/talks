@@ -4,7 +4,7 @@
     <title>swissdd</title>
     <meta charset="utf-8" />
     <meta name="author" content="Thomas Lo Russo" />
-    <meta name="date" content="2021-09-03" />
+    <meta name="date" content="2021-09-05" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
     <link href="index_files/font-awesome/css/all.css" rel="stylesheet" />
     <link href="index_files/font-awesome/css/v4-shims.css" rel="stylesheet" />
@@ -135,15 +135,7 @@ swissdd::get_cantonalvotes(geolevel = "district")
 ## #   anzahlStimmberechtigte &lt;int&gt;, gueltigeStimmen &lt;int&gt;, de &lt;chr&gt;, fr &lt;chr&gt;,
 ## #   it &lt;chr&gt;, rm &lt;chr&gt;, votedate &lt;date&gt;
 ```
----
-# Maps
 
-
-```r
-swissdd::plot_nationalvotes(votedate = "2014-02-09",vote_id = 5800, geolevel = "canton")
-```
-
-&lt;img src="index_files/figure-html/unnamed-chunk-4-1.png" width="100%" /&gt;
 ---
 # Archive
 
@@ -160,12 +152,22 @@ ggplot(swiss_data, aes(votedate, stimmbeteiligungInProzent))+
   labs(y="Stimmbeteiligung (%)", x="")
 ```
 
-&lt;img src="index_files/figure-html/unnamed-chunk-5-1.png" width="60%" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-4-1.png" width="60%" /&gt;
+
+---
+# Maps
+
+
+```r
+swissdd::plot_nationalvotes(votedate = "2014-02-09",vote_id = 5800, geolevel = "canton")
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-5-1.png" width="100%" /&gt;
 
 ---
 # Outlook
 
-- Ongoing maintenance to keep a stable version on CRAN
+- Ongoing maintenance to keep a stable version on github / CRAN
 
 --
 
@@ -173,7 +175,7 @@ ggplot(swiss_data, aes(votedate, stimmbeteiligungInProzent))+
 
 --
 
-__**Contributions are welcome!**__
+__**Contributions &amp; ideas for further improvement are welcome!**__
 
 ---
 class: center, middle, inverse
