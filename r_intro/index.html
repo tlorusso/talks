@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>R @ Kanton Zürich</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Thomas Lo Russo   Statistisches Amt   Fach- und Koordinationsstelle OGD" />
+    <script src="index_files/header-attrs-2.8/header-attrs.js"></script>
+    <link rel="stylesheet" href="lib/zh_cd_city.css" type="text/css" />
+    <link rel="stylesheet" href="lib/hygge.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# R @ Kanton Zürich
+### Thomas Lo Russo <br> Statistisches Amt <br> Fach- und Koordinationsstelle OGD
+### 01.10.2021
+
+---
+
+
+# Bei R stehen Daten im Fokus
+
+R ist eine (Statistik)-Programmiersprache und offene Software. 
+
+Mit R lassen sich Daten ...
+
+**... sammeln**
+
+**... transformieren**
+
+**... visualisieren**
+
+**... modellieren** 
+
+**... präsentieren**
+
+Vom Sammeln der Daten (z.B. via Webscraping), Strukturieren, über das Visualisieren (statisch / interaktiv) bis hin zur Erstellung von Webseiten (Blogs) bauen oder Applikationen um die Daten zu präsentieren.
+???
+
+# Data Analysis in R
+
+Data analysis with R is done in a series of steps. Programming, transforming, discovering, modeling and communicate the results.
+
+__Program:__ R is a clear and accessible programming tool
+
+__Transform:__ R is made up of a collection of libraries designed specifically for data science
+
+__Discover:__ Investigate the data, refine your hypothesis and analyze them
+
+__Model:__ R provides a wide array of tools to capture the right model for your data
+
+__Communicate:__ Integrate codes, graphs, and outputs to a report with R Markdown or build Shiny apps to share with the world
+
+---
+
+![](powerbi_r.PNG)
+
+???
+
+- Programmiersprache und offene Software (seit 1993) / skriptsprache
+
+A programming language &amp; free software developed by Ross Ihaka and Robert Gentleman in 1993
+
+- Possesses an extensive catalog of statistical and graphical methods 
+
+- Entrusted by academia, but many large companies also use R programming language, including Uber, Google, Airbnb, Facebook and so on.
+
+
+---
+
+# R-Packages
+
+R-Pakete bieten Zusatzfunktionen. Die am häufigsten verwendeten Pakete decken die verschiedenen Schritte des Arbeitsablaufs einer Datenwissenschaftler/in ab, von der Datensammlung bis zur Kommunikation der Ergebnisse.
+
+Unsere eigenen R-Packages:
+
+(extern / publik)
+-  &lt;a href="https://statistikzh.github.io/statR/index.html" style="color: #095484;text-decoration: none; border-bottom:"&gt;&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;statistikZH/statR&lt;/a&gt; &lt;br&gt;
+
+- zhMetadatenAPI (in Erstellung)
+
+(intern)
+- statools 
+
+---
+# Verwendung - Beispiele
+
+UA-Dashboard
+Luftdaten
+PlausiApp
+
+***
+---
+background-image: url(lib/Hintergrundbild2.jpg)
+class: center, middle, inverse
+
+# Community
+
+Der R-Austausch richtet sich an R Nutzer*innen in der Zürcher Kantonsverwaltung. Er dient als Plattform für den Wissensaustausch und der Vernetzung rund um die offene Statistiksoftware R.
+
+[Landing page](https://github.com/statistikZH/rstats_ktzh)
+
+---
+background-image: url(lib/Hintergrundbild2.jpg)
+class: center, middle, inverse
+
+# Training
+
+Unser R-Kurs gibt Mitarbeiterinnen und Mitarbeitern der Verwaltung einen persönlichen Einstieg in Data Science mit R.
+
+[Anmeldung](https://www.zh.ch/de/politik-staat/statistik-daten/datenwerkstatt/rstatszh-data-science-mit-r-anmelden.html)
+
+---
+background-image: url(https://cdn.dribbble.com/users/614757/screenshots/2216475/media/6ac75102940f3b8b2e6587f379d56ed3.gif)
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>`\n"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
