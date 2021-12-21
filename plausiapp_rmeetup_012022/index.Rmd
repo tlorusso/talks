@@ -1,7 +1,7 @@
 ---
 title: "PlausiApp"
 subtitle: "Anomaly Detection on Vote Sundays <br> with R & Shiny"
-author: 'Thomas Lo Russo / Simon Graf'
+author: 'Thomas Lo Russo & Simon Graf'
 date: '19.01.2022<br><br><br><a href="https://twitter.com/statistik_zh" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i>@statistik_zh</a>'
 output:
   xaringan::moon_reader:
@@ -76,9 +76,9 @@ The PlausiApp aims at systematically identifying anomalies in the results on vot
 
 ### Aims
 
-- Detect routine errors at an early stage
-- Reduce the workload of the 
-- Increase the quality of result submission
+- Detect routine errors automatically at an early stage
+- Reduce the workload caused by former ad hoc-verification
+- Increase the quality of result submission and preventing the publication of erroneous results
 - Build confidence in the electoral process
 
 ### Statistical plausibility / verification checks on voting Sunday
