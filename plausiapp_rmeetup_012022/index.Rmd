@@ -103,13 +103,16 @@ Does a value lie in the expected range?
 
 in comparison to the past
 
-- Channels (by mail or by Urne)
+- Channels of submission (mail / polling booths)
 
 in comparison to other municipalities
 
-- Ranking of the Participation (%) of <br> the vote topics
+- Ranking of the Participation (%) of <br>the various vote issues
+- Share of ballots which are:
+  - empty
+  - invalid (with no clear vote intention)
+  - contained in envelopes without transmission card
 
-- Share of invalid / empty ballots
 
 ???
 Participation : there's always a ranking - federal vote topics do usually have slightly higher participation than cantonal and certain topics do 'mobilize' slightly more. There usually is a very clear common pattern across municipalities.
