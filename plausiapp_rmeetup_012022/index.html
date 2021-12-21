@@ -15,7 +15,7 @@
 class: center, middle, inverse, title-slide
 
 # PlausiApp
-## Plausibilisierung am Abstimmungssonntag mit R &amp; Shiny
+## Anomaly Detection on Vote Sundays <br> with R &amp; Shiny
 ### Thomas Lo Russo / Simon Graf
 ### 19.01.2022<br><br><br><a href="https://twitter.com/statistik_zh" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i><span class="citation">@statistik_zh</span></a>
 
@@ -23,11 +23,26 @@ class: center, middle, inverse, title-slide
 
 # The Statistical Office
 
+[zh.ch/statistisches-amt]()
+
 The Statistical Office provides the population, companies, politics, administration and organisations with __statistics, data and analyses on the Canton of Zurich__. 
 
-Additionally it carries out a role related to pol rights too. It operates the __cantonal election and voting center__ during ballots. Municipalities count the incoming votes and submit their results to the Statistical Office, which asseses and verfies votes and election results and that submits the verified results for national votes / elections to the federal level.
+Additionally it carries out a role related to poltical rights. It operates the __cantonal election and voting center__ during ballots. Municipalities count the incoming votes and submit their results to the Statistical Office, which asseses and verfies votes and election results and that submits the verified results for national votes / elections to the federal level.
+
+---
+# The Statistical Office
 
 [zh.ch/statistisches-amt]()
+
+.grey[The Statistical Office provides the population, companies, politics, administration and organisations with __statistics, data and analyses on the Canton of Zurich__. 
+
+Additionally it carries out a role related to poltical rights. It operates the __cantonal election and voting center__ during ballots. Municipalities count the incoming votes and submit their results to the Statistical Office, which .Large[.black[__asseses and verfies vote and election results__]] and that submits the verified results for national votes / elections to the federal level.]
+
+--
+
+→ Since the beginning of 2020 we use the __Plausiapp__, a R-Shiny based Tool for this purpouse.
+
+
 
 ---
 # Shiny at the Statistical Office : Use Cases
@@ -43,7 +58,8 @@ Additionally it carries out a role related to pol rights too. It operates the __
 
 ### Internal Dashboards 
 
-.content-box-blue[PlausiApp]
+.content-box-red[PlausiApp]
+
 
 ---
 # PlausiApp
@@ -71,6 +87,33 @@ The PlausiApp aims at systematically identifying anomalies in the results on vot
 ![hier](plausiapp.PNG)
 
 ---
+background-image: url(https://randysrandom.com/wp-content/uploads/outlier.jpg)
+
+# Outlier Detection
+
+Does a value lie in the expected range?
+
+in comparison to the past
+
+- Channels (by mail or by Urne)
+
+in comparison to other municipalities
+
+- Ranking of the Participation (%) of &lt;br&gt; the vote topics
+
+- Share of invalid / empty ballots
+
+???
+Participation : there's always a ranking - federal vote topics do usually have slightly higher participation than cantonal and certain topics do 'mobilize' slightly more. There usually is a very clear common pattern across municipalities.
+
+- .... 
+
+Median Absolute Deviation
+
+
+
+
+---
 
 # Prediction of Approval Patterns
 
@@ -92,7 +135,7 @@ Higher deviations between the actual and the predicted yes share may indicate er
 
 ---
 
-# Vorhersage Ja-Anteile
+# Prediction vs Result
 
 
 ![hier](plausiapp2.PNG)
@@ -103,8 +146,11 @@ What we're looking for...
 
 Direction .. 
 
+Caveats : we spot only errors that are statistically noticeable.
 
+We might overlook errors that do not deviate from the patterns of the .. or match the nromal patterns of a municpality.
 
+However : claim : significatn errors are also potentially more damanging... 
 
 ---
 background-image: url(lib/Hintergrundbild2.jpg)
