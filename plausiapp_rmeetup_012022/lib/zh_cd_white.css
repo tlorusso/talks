@@ -209,6 +209,20 @@ hr {
   padding-top: 2.5em;
 }
 
+
+/* section title slide - does not work? */ 
+
+.section-title h1 {
+  font-family: 'Arial Black','Helvetica' !important;
+  color: #009ee0;  
+  text-shadow: none;
+  line-height: 1em;
+  text-align: left;
+  margin-left: 70px;
+  margin-top: 100px; 
+  padding-top: 2.5em;
+}
+
 /*
 .title-slide h1:before {
     content: 'Kanton Zürich Statistisches Amt \a ';

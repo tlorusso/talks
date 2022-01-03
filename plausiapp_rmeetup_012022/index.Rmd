@@ -33,9 +33,12 @@ output:
 
 [zh.ch/statistisches-amt]()
 
-The Statistical Office provides the population, companies, politics, administration and organisations with __statistics, data and analyses on the Canton of Zurich__. 
+The Statistical Office provides the population, companies, politicians, the public administration and organisations with __statistics, data and analyses on the Canton of Zurich__. 
 
 Additionally it carries out a role related to poltical rights. It operates the __cantonal election and voting center__ during ballots. Municipalities count the incoming votes and submit their results to the Statistical Office, which asseses and verfies votes and election results and that submits the verified results for national votes / elections to the federal level.
+
+???
+Unlike in many other cantons, where this is often a task of the state chancellery.
 
 ---
 # The Statistical Office
@@ -48,7 +51,7 @@ Additionally it carries out a role related to poltical rights. It operates the _
 
 --
 
-→ Since the beginning of 2020 we use the __Plausiapp__, a R-Shiny based Tool for this purpouse.
+→ Since the beginning of 2020 we use an R-Shiny based Tool, named __Plausiapp__, for this purpouse.
 
 
 
@@ -58,21 +61,20 @@ Additionally it carries out a role related to poltical rights. It operates the _
 
 ### Public Dashboards
 
-.content-box-blue[User-Analytics Dashboard] : https://openzh.shinyapps.io/UAStat/
+.content-box-blue[Web Analytics Dashboard] : https://openzh.shinyapps.io/UAStat/
 
-.content-box-blue[Customer Support Dashboard] : https://openzh.shinyapps.io/anfzh
+.content-box-blue[Customer Support Analytics Dashboard] : https://openzh.shinyapps.io/anfzh
 
-.content-box-blue[AWEL]
+.content-box-blue[AWEL] : Link
 
 ### Internal Dashboards 
 
 .content-box-red[PlausiApp]
 
-
 ---
 # PlausiApp
 
-The PlausiApp aims at systematically identifying anomalies in the results on vote sundays. It is a tool to assess and verify vote results.
+The PlausiApp aims at identifying anomalies in the results on vote sundays. It allows to assess and verify vote results systematically.
 
 ### Aims
 
@@ -86,7 +88,7 @@ The PlausiApp aims at systematically identifying anomalies in the results on vot
 **Methods**
 
 - Outlier detection
-- Prediction of the plausible yes-share of municipalities given the main trend / patterns / voting via Machine Learning
+- Prediction of the plausible yes-share of municipalities given the overall trends / consent patterns via Machine Learning
 
 ---
 
@@ -96,6 +98,8 @@ The PlausiApp aims at systematically identifying anomalies in the results on vot
 
 ---
 background-image: url(https://randysrandom.com/wp-content/uploads/outlier.jpg)
+
+--
 
 # Outlier Detection
 
@@ -115,15 +119,11 @@ __In relation to other municipalities:__
   
 
 ???
+Channels of submission - we check if the share of the votes submited by the differents channels (votes submitted by mail / votes submitted in person at the polling booth) lie within the expected range for each municipality given the past. The shares of the channels vary a bit according to the municipality type (bigger cities / smaller municipalities).
+
 Participation : there's always a ranking - federal vote topics do usually have slightly higher participation than cantonal and certain topics do 'mobilize' slightly more. There usually is a very clear common pattern across municipalities.
 
-- .... 
-
-Median Absolute Deviation
-
-
-
-
+We use the Median absolute deviation as an instrumen (robust / ideal for small sample size)
 ---
 
 # Prediction of Approval Patterns
@@ -139,9 +139,9 @@ predict_votes(votes=c("Eidg1","Kant1"),
 ```
 → All the via [caret package](http://topepo.github.io/caret/index.html) available algorithms can be used.
 
-**Comparison : prediction VS actual result**
+**Comparison : Prediction VS Actual Result**
 
-Higher deviations between the actual and the predicted yes share may indicate errors.
+→ Deviations between the actual and the predicted yes share may indicate errors.
 
 ---
 
@@ -149,19 +149,9 @@ Higher deviations between the actual and the predicted yes share may indicate er
 
 
 ![hier](plausiapp2.PNG)
----
-background-image: url(https://randysrandom.com/wp-content/uploads/outlier.jpg)
 
-What we're looking for... 
-
-Direction .. 
-
-Caveats : we spot only errors that <br> are statistically noticeable.
-
-We might overlook errors that do not <br>
-deviate from the expected patterns of a municpality.
-
-However : claim : significant errors are also potentially more damaging... 
+???
+Real life example with two municipalities with high deviations of the submitted results and the prediction. What we do in such cases : get in touch with the municipalities and ask them to check the reported numbers or even recount. 
 ---
 class: center, middle, inverse
 
@@ -172,11 +162,19 @@ background-image: url(https://images.unsplash.com/photo-1609669483452-46ce81e443
 ---
 # Outlook
 
-- Stable version - minor improvements
-- Share the Tool with other interested cantons
-- .....
+- __Ongoing minor improvements__
 
+- __Sharing the tool with other interested cantons__ 
 
+  Prerequisite : Vote Results Reporting Software "Wabsti"
+
+- __Common standard for result verification data exports__ 
+
+  Coordinative efforts to define a common standard for result verification data exports, in order that the tool could be used by any canton irrespective of their result software.
+
+- __Preparations for the elections 2023__
+
+  Preparation of a verification logic suited for the elections 2023 (cantonal / national)
 
 ---
 background-image: url(lib/Hintergrundbild2.jpg)
