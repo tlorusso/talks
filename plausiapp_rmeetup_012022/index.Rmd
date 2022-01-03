@@ -156,11 +156,13 @@ Real life example with two municipalities with high deviations of the submitted 
 ---
 # Conclusion
 
-> The PlausiApp has brought a significant gain in efficiency and allows for a highly reliable detection of potentially damaging errors. 
+> The PlausiApp has brought a significant gain in efficiency and allows to detect potentially damaging errors in a highly reliable way. 
 
 __Caveat__ : Primarily errors with a magnitude that makes them statistically noticeable are likely to be detected. Errors that do not deviate from the expected patterns might get overlooked.
 
 → However, the higher the magnitude, the higher the potential distortion of the results.
+
+→ Many checks are built in a way that they signal even small deviations.
 
 ---
 class: center, middle, inverse
@@ -174,7 +176,7 @@ background-image: url(https://images.unsplash.com/photo-1609669483452-46ce81e443
 
 - __Ongoing minor improvements__
 
-- __Sharing the tool with other interested cantons__ 
+- __Making the PlausiApp accessible to other interested cantons__ 
 
   Prerequisite : Vote Results Reporting Software "Wabsti"
 
