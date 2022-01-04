@@ -51,7 +51,7 @@ Additionally it carries out a role related to political rights. It operates the 
 
 --
 
-→ Since the beginning of 2020 we use a R-Shiny based Tool, named __Plausiapp__, for this purpouse.
+→ Since the beginning of 2020 we use a R-Shiny based Tool, named __PlausiApp__, for this purpose.
 
 
 
@@ -79,8 +79,8 @@ The PlausiApp aims at identifying anomalies in the results on vote sundays. It a
 ### Aims
 
 - Detect routine errors automatically at an early stage
-- Reduce the workload caused by former ad hoc-verification
 - Increase the quality of result submission and preventing the publication of erroneous results
+- Reduce the workload caused by former ad hoc-verification
 - Build confidence in the electoral process
 
 ### Statistical plausibility / verification checks on voting Sunday
@@ -88,7 +88,7 @@ The PlausiApp aims at identifying anomalies in the results on vote sundays. It a
 **Methods**
 
 - Outlier detection
-- Prediction of the plausible yes-share of municipalities given the overall trends / consent patterns via Machine Learning
+- Simulation of the expected yes-share for each municipality given the overall trends / consent patterns via Machine Learning
 
 ---
 
@@ -160,9 +160,9 @@ Real life example with two municipalities with high deviations of the submitted 
 
 - The higher the magnitude, the higher the potential distortion of the results and the higher the probability of detection
 
-- Errors that do not deviate from the expected patterns might get overlooked
+- Small errors that do not deviate from the expected patterns might get overlooked
 
-- Still, many checks are built in a way to signal even small deviations
+- But : many checks are built in a way to signal even small deviations
 
 ---
 class: center, middle, inverse
@@ -178,11 +178,11 @@ background-image: url(https://images.unsplash.com/photo-1609669483452-46ce81e443
 
 - __Making the PlausiApp accessible to other interested cantons__ 
 
-  Prerequisite : Vote Results Reporting Software "Wabsti"
+  Focus on Cantons that use the same Vote Result Reporting Software as the Canton Zurich ("Wabsti")
 
 - __Common standard for result verification data exports__ 
 
-  Coordinative efforts to define a common standard for result verification data exports, in order that the tool could be used by any canton irrespective of their result software.
+  Coordinative efforts to define a common standard (ECH) for result verification data exports, in order that the tool could be used by any canton irrespective of their result software.
 
 - __Preparations for the elections 2023__
 
