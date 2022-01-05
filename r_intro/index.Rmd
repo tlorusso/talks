@@ -28,7 +28,7 @@ output:
 
 R ist eine Programmiersprache und offene Software. 
 
-Mir R kann man Daten ...
+Mir R kann man **Daten** ...
 
 **... sammeln** , z.B. via Webscraping
 
