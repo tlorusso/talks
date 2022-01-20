@@ -113,11 +113,11 @@ Unsere eigenen R-Packages:
 
 .content-box-blue[Customer Support Analytics Dashboard] : https://openzh.shinyapps.io/anfzh
 
-.content-box-blue[AWEL] : Link
+.content-box-blue[AWEL Lokalklima-Monitoring] : https://openzh.shinyapps.io/Lokalklima
 
 ### Interne Dashboards 
 
-.content-box-red[PlausiApp] : https://tlorusso.github.io/talks/plausiapp_032021/#1
+.content-box-red[PlausiApp] : https://tlorusso.github.io/talks/plausiapp_032021/
 
 ---
 background-image: url(lib/Hintergrundbild2.jpg)
@@ -127,7 +127,7 @@ class: center, middle, inverse
 
 Der R-Austausch richtet sich an R Nutzer*innen in der Zürcher Kantonsverwaltung. Er dient als Plattform für den Wissensaustausch und der Vernetzung rund um die offene Statistiksoftware R.
 
-[Landing page](https://github.com/statistikZH/rstats_ktzh)
+[Landing page](https://statistikzh.github.io/rstats_ktzh/)
 
 ---
 background-image: url(lib/Hintergrundbild2.jpg)
