@@ -65,7 +65,7 @@ Additionally it carries out a role related to political rights. It operates the 
 
 .content-box-blue[Customer Support Analytics Dashboard] : https://openzh.shinyapps.io/anfzh
 
-.content-box-blue[AWEL] : Link
+.content-box-blue[Local Climate Monitoring] : https://openzh.shinyapps.io/Lokalklima/
 
 ### Internal Dashboards 
 
@@ -87,7 +87,7 @@ The PlausiApp aims at identifying anomalies in the results on vote sundays. It a
 
 **Methods**
 
-- Outlier detection
+- Univariate Outlier Detection
 - Simulation of the expected yes-share for each municipality given the overall trends / consent patterns via Machine Learning
 
 ---
@@ -123,7 +123,7 @@ Channels of submission - we check if the share of the votes submited by the diff
 
 Participation : there's always a ranking - federal vote topics do usually have slightly higher participation than cantonal and certain topics do 'mobilize' slightly more. There usually is a very clear common pattern across municipalities.
 
-We use the Median absolute deviation as an instrumen (robust / ideal for small sample size)
+We use the Median absolute deviation as a measure (robust / ideal for small sample size). We've tried out several measures (z-scores, tukeys fences) and even some multivariate approaches (isolation forests). But for our purposes the univariate MAD-approach works best when it comes to detect outliers, both when it comes to detection of errors as well as when it comes to interpretability (its easy to explain / interpret).
 ---
 
 # Prediction of Approval Patterns
@@ -178,11 +178,11 @@ background-image: url(https://images.unsplash.com/photo-1609669483452-46ce81e443
 
 - __Making the PlausiApp accessible to other interested cantons__ 
 
-  Focus on Cantons that use the same Vote Result Reporting Software as the Canton Zurich ("Wabsti")
+   Cooperation with two Cantons to empower them to use the App ongoing
 
 - __Common standard for result verification data exports__ 
 
-  Coordinative efforts to define a common standard (ECH) for result verification data exports, in order that the tool could be used by any canton irrespective of their result software.
+  Coordinative efforts to define a common standard (ECH) for result verification data exports, in order that the tool could be used by any canton easily and irrespective of the result software in use.
 
 - __Preparations for the elections 2023__
 
