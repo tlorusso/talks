@@ -161,7 +161,7 @@ predict_votes(votes=c("Eidg1","Kant1"),
 ![hier](plausiapp2.PNG)
 
 ???
-Real life example with two municipalities with high deviations of the submitted results and the prediction. What we do in such cases : get in touch with the municipalities and ask them to check the reported numbers or even recount.
+Real life example with two municipalities with high deviations of the submitted results and the prediction. For one of the federal vote topics - deviation from reported result (ban on face covering initiative march 2021). What we do in such cases : get in touch with the municipalities and ask them to check the reported numbers or even recount.
 
 ---
 # Conclusion
