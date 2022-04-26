@@ -1,7 +1,10 @@
 Repo für Slides und Materialien meiner Vorträge.
 
+[Presentation of the PlausiApp, 04/2022 @ Zurich R User Group Meetup](https://tlorusso.github.io/talks/plausiapp_rmeetup_042022)
+
 [Presentation on the swissdd-package @ Swiss Statistical Days 2021](https://tlorusso.github.io/talks/swissdd)
 
 [Kurzpräsentation zur PlausiApp, 03/2021](https://tlorusso.github.io/talks/plausiapp_032021)
 
 [Mastering Corporate Design with R @ UROS 2018](https://tlorusso.github.io/uros_master_cd_with_r/presentation.html)
+
