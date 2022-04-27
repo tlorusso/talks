@@ -198,6 +198,15 @@ background-image: url(https://images.unsplash.com/photo-1609669483452-46ce81e443
 - __Preparations for the elections 2023__
 
   Preparation of a verification logic suited for the elections 2023 (cantonal / national)
+  
+---
+background-image: url(lib/Hintergrundbild2.jpg)
+class: center, middle, inverse
+
+# Thanks for your attention!
+
+<img src="https://media.giphy.com/media/QAsBwSjx9zVKoGp9nr/giphy.gif" width="">
+
 
 ---
 background-image: url(lib/Hintergrundbild2.jpg)
@@ -218,14 +227,6 @@ To be published on our website soon!
 
 [zh.ch/statistisches-amt](https://www.zh.ch/de/arbeiten-beim-kanton/ein-kanton-viele-moeglichkeiten/arbeite-bei-der-direktion-der-justiz-und-des-innern/arbeiten-beim-statistischen-amt.html)
 
-
----
-background-image: url(lib/Hintergrundbild2.jpg)
-class: center, middle, inverse
-
-# Thanks for your attention!
-
-<img src="https://media.giphy.com/media/QAsBwSjx9zVKoGp9nr/giphy.gif" width="">
 
 ---
 background-image: url(lib/Hintergrundbild2.jpg)
