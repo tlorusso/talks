@@ -123,7 +123,7 @@ __In relation to other municipalities:__
 ???
 Channels of submission - we check if the share of the votes submited by the differents channels (votes submitted by mail / votes submitted in person at the polling booth) lie within the expected range for each municipality given the past. The shares of the channels vary a bit according to the municipality type (bigger cities / smaller municipalities).
 
-Participation : there's always a ranking - federal vote topics do usually have slightly higher participation than cantonal and certain topics do 'mobilize' slightly more. There usually is a very clear common pattern across municipalities.
+Participation : there's always a ranking - heuristically speaking federal vote topics do usually have slightly higher participation than cantonal ones and certain topics do 'mobilize' slightly more. There usually is a very clear common pattern across municipalities.
 
 We use the Median absolute deviation as a measure (robust / ideal for small sample size). We've tried out several measures (z-scores, tukeys fences) and even some multivariate approaches (isolation forests). But for our purposes the univariate MAD-approach works best when it comes to detect outliers, both when it comes to detection of errors as well as when it comes to interpretability (its easy to explain / interpret).
 ---
@@ -166,10 +166,11 @@ Real life example with two municipalities with high deviations of the submitted 
 - Many checks are built in a way to signal even small deviations
 
 - However, smaller errors that do not deviate from the expected patterns might sometimes still go undetected
-
+---
+class: center, middle
+&lt;img src="https://memegenerator.net/img/instances/56627652/enough-talk-time-to-demo.jpg" height="400px" /&gt;
 ---
 class: center, middle, inverse
-
 background-image: url(https://images.unsplash.com/photo-1609669483452-46ce81e443eb?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2002&amp;q=80)
 
 # Outlook
