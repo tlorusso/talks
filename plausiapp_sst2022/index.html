@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>PlausiApp</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Thomas Lo Russo &amp; Simon Graf  @thlorusso / @simgraworldwide" />
+    <script src="index_files/header-attrs-2.13/header-attrs.js"></script>
+    <link rel="stylesheet" href="lib/zh_cd_city.css" type="text/css" />
+    <link rel="stylesheet" href="lib/hygge.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# PlausiApp
+]
+.subtitle[
+## Anomaly Detection on Vote Sundays <br> with R &amp; Shiny
+]
+.author[
+### Thomas Lo Russo &amp; Simon Graf<br> <a href="https://twitter.com/thlorusso" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i><span class="citation">@thlorusso</span></a> / <a href="https://twitter.com/simgraworldwide" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i><span class="citation">@simgraworldwide</span></a>
+]
+.date[
+### 27.4.2022<br><br><br><a href="https://twitter.com/statistik_zh" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i><span class="citation">@statistik_zh</span></a>
+]
+
+---
+
+# Content
+
+1. The Statistical Office as cantonal election center
+
+2. Technology &amp; Infrastructure
+
+3. Methodological Approach
+
+4. Inter cantonal Collaboration 
+
+5. Outlook 
+
+---
+# The Statistical Office
+
+[zh.ch/statistisches-amt]()
+
+The Statistical Office provides the population, companies, politicians, the public administration and organisations with __statistics, data and analyses on the Canton of Zurich__. 
+
+Additionally it carries out a role related to political rights. It operates the __cantonal election and voting center__ during ballots. Municipalities count the incoming votes and submit their results to the Statistical Office, which asseses and verifies vote and election results. The Office publishes the verified results  and submits them to the federal level.
+
+???
+Unlike in many other cantons, where this is often a task of the state chancellery.
+
+---
+# The Statistical Office
+
+[zh.ch/statistisches-amt]()
+
+.grey[The Statistical Office provides the population, companies, politics, administration and organisations with __statistics, data and analyses on the Canton of Zurich__. 
+
+Additionally it carries out a role related to political rights. It operates the __cantonal election and voting center__ during ballots. Municipalities count the incoming votes and submit their results to the Statistical Office, which .Large[.black[__asseses and verifies vote and election results__]]. The Office publishes the verified results  and submits them to the federal level.]
+
+--
+
+→ Since the beginning of 2020 we use a R-Shiny based Tool, named __PlausiApp__, for this purpose.
+
+--
+
+→ We use R in the production of our statistics and data products as well as at the heart of the direct democratic process!
+
+
+???
+Why R : We make extensive use of R in the production of our statistics and data products - it is our 'main' data / statistics-programming language. But with the Plausi App we use R at the heart of the democratic process.
+
+---
+# Shiny at the Statistical Office : Use Cases
+
+
+### Public Dashboards
+
+.content-box-blue[Web Analytics Dashboard] : https://openzh.shinyapps.io/UAStat/
+
+.content-box-blue[Customer Support Analytics Dashboard] : https://openzh.shinyapps.io/anfzh
+
+.content-box-blue[Local Climate Monitoring] : https://openzh.shinyapps.io/Lokalklima/
+
+### Internal Dashboards 
+
+.content-box-red[PlausiApp]
+
+???
+We also use Shiny - here an Overview over some Use-Cases. We use it both for public as well as internal dashboards / Apps.
+
+---
+# PlausiApp
+
+The PlausiApp aims at identifying anomalies in the results on vote sundays. It allows to assess and verify vote results systematically.
+
+### Aims
+
+- Detect routine errors automatically at an early stage
+- Increase the quality of result submission and preventing the publication of erroneous results
+- Reduce the workload caused by former ad hoc-verification
+- Build confidence in the electoral process
+
+### Statistical plausibility / verification checks on voting Sunday
+
+**Methods**
+
+- Univariate Outlier Detection
+- Simulation of the expected yes-share for each municipality given the overall trends / consent patterns via Machine Learning
+
+---
+
+# Architecture
+
+![hier](plausiapp.PNG)
+
+---
+background-image: url(https://randysrandom.com/wp-content/uploads/outlier.jpg)
+
+--
+
+# Outlier Detection
+
+Do the reported values lie in the expected range?
+
+__In relation to the past:__
+
+- Channels of submission (mail / polling booths)
+- Number of eligible voters
+
+__In relation to other municipalities:__
+
+- Ranking of the Participation (%) of &lt;br&gt;the various vote issues
+- Share of ballots which are:
+  - empty
+  - invalid (with no clear vote intention)
+  - contained in envelopes without transmission card
+  
+
+???
+Channels of submission - we check if the share of the votes submited by the differents channels (votes submitted by mail / votes submitted in person at the polling booth) lie within the expected range for each municipality given the past. The shares of the channels vary a bit according to the municipality type (bigger cities / smaller municipalities).
+
+Participation : there's always a ranking - heuristically speaking federal vote topics do usually have slightly higher participation than cantonal ones and certain topics do 'mobilize' slightly more. There usually is a very clear common pattern across municipalities.
+
+We use the Median absolute deviation as a measure (robust / ideal for small sample size). We've tried out several measures (z-scores, tukeys fences) and even some multivariate approaches (isolation forests). But for our purposes the univariate MAD-approach works best when it comes to detect outliers, both when it comes to detection of errors as well as when it comes to interpretability (its easy to explain / interpret).
+---
+
+# Prediction of Approval Patterns
+
+Once a handful of municipalities have completed the count, a prediction of the final results (% of Yes Votes) for all areas can be made. 
+
+
+```r
+library(plausi)
+
+predict_votes(votes=c("Eidg1","Kant1"), 
+              train=votedata, 
+              exclude_votes=TRUE)
+```
+→ All the via [caret package](http://topepo.github.io/caret/index.html) available algorithms can be used.
+
+**Comparison : Prediction VS Actual Result**
+
+→ Deviations between the actual and the predicted yes share may indicate errors.
+
+---
+
+# Prediction vs Result
+
+
+![hier](plausiapp2.PNG)
+
+???
+Real life example with two municipalities with high deviations of the submitted results and the prediction. For one of the federal vote topics - deviation from reported result (ban on face covering initiative march 2021). What we do in such cases : get in touch with the municipalities and ask them to check the reported numbers or even recount.
+
+---
+# Conclusion
+
+&gt; The PlausiApp has brought a significant gain in efficiency and allows to detect potentially damaging errors in a highly reliable way. 
+
+- The higher the magnitude, the higher the potential distortion of the results and the higher the probability of detection
+
+- Many checks are built in a way to signal even small deviations
+
+- However, smaller errors that do not deviate from the expected patterns might sometimes still go undetected
+---
+class: center, middle
+
+# Demo / Video?
+
+---
+class: center, middle, inverse
+background-image: url(https://images.unsplash.com/photo-1609669483452-46ce81e443eb?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2002&amp;q=80)
+
+# Outlook
+
+---
+# Outlook
+
+- __Continuous minor improvements__
+
+- __Making the PlausiApp accessible to other interested cantons__ 
+
+   Cooperation with two Cantons to empower them to use the App ongoing
+
+- __Common standard for result verification data exports__ 
+
+  Coordinative efforts to define a common standard (ECH) for result verification data exports, in order that the tool could be used by any canton easily and irrespective of the result software in use.
+
+- __Preparations for the elections 2023__
+
+  Preparation of a verification logic suited for the elections 2023 (cantonal / national)
+  
+---
+background-image: url(lib/Hintergrundbild2.jpg)
+class: center, middle, inverse
+
+# Thanks for your attention!
+
+&lt;img src="https://media.giphy.com/media/QAsBwSjx9zVKoGp9nr/giphy.gif" width=""&gt;
+
+
+---
+background-image: url(lib/Hintergrundbild2.jpg)
+class: center, middle, inverse
+
+# R in the Cantonal Administration
+
+We have a vivid R-Community  and foster the usage of R in the cantonal administration &amp;#128515;
+
+&lt;center&gt;&lt;a href="https://zh.ch/transform"&gt;&lt;img src="transform.png" height="400px" /&gt;&lt;/a&gt;&lt;/center&gt;
+
+---
+background-image: url(lib/Hintergrundbild2.jpg)
+class: center, middle, inverse
+
+&lt;div class="contact"&gt;
+&lt;a href="https://twitter.com/statistik_zh" style="text-decoration: none; border-bottom:"&gt;&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;@statistik_zh&lt;/a&gt;&lt;br&gt; 
+&lt;a href="https://github.com/statistikZH"&gt;&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;Statistisches Amt Kanton Zürich&lt;/a&gt;&lt;br&gt; 
+&lt;a href="mailto:datashop@statistik.zh.ch"&gt;&lt;i class="fa fa-paper-plane fa-fw"&gt;&lt;/i&gt;datashop@statistik.zh.ch&lt;/a&gt;&lt;br&gt;
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>`\n"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
