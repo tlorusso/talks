@@ -31,17 +31,15 @@ output:
 ---
 # Content
 
-1. The Statistical Office as cantonal election center
+1. The Statistical Office as Cantonal Vote & Election Center
 
-2. Technology & Infrastructure
+2. The PlausiApp - Architecture & Methodological Approach
 
-3. Methodological Approach
+3. Demo
 
-4. Demo
+4. Usage by other Cantons (TG & SG)
 
-5. Inter cantonal Collaboration 
-
-6. Outlook 
+5. Outlook 
 
 ---
 # The Statistical Office
@@ -75,25 +73,10 @@ Additionally it carries out a role related to political rights. It operates the 
 
 ???
 Why R : We make extensive use of R in the production of our statistics and data products - it is our 'main' data / statistics-programming language. But with the Plausi App we use R at the heart of the democratic process.
-
 ---
-# Shiny at the Statistical Office : Use Cases
+class: middle, center, inverse
 
-
-### Public Dashboards
-
-.content-box-blue[Web Analytics Dashboard] : https://openzh.shinyapps.io/UAStat/
-
-.content-box-blue[Customer Support Analytics Dashboard] : https://openzh.shinyapps.io/anfzh
-
-.content-box-blue[Local Climate Monitoring] : https://openzh.shinyapps.io/Lokalklima/
-
-### Internal Dashboards 
-
-.content-box-red[PlausiApp]
-
-???
-We also use Shiny - here an Overview over some Use-Cases. We use it both for public as well as internal dashboards / Apps.
+# PlausiApp
 
 ---
 # PlausiApp
@@ -119,6 +102,51 @@ The PlausiApp aims at identifying anomalies in the results on vote sundays. It a
 # Architecture
 
 ![hier](plausiapp.PNG)
+
+------
+# Shiny at the Statistical Office
+
+https://shiny.rstudio.com/
+
+### Public Dashboards
+
+.content-box-blue[Web Analytics Dashboard] : https://openzh.shinyapps.io/UAStat/
+
+.content-box-blue[Customer Support Analytics Dashboard] : https://openzh.shinyapps.io/anfzh
+
+.content-box-blue[Local Climate Monitoring] : https://openzh.shinyapps.io/Lokalklima/
+
+### Internal Dashboards 
+
+.content-box-red[PlausiApp]
+
+???
+We also use Shiny - here an Overview over some Use-Cases. We use it both for public as well as internal dashboards / Apps.
+
+---
+# Shiny at the Statistical Office
+
+https://shiny.rstudio.com/
+
+### Public Dashboards
+
+.content-box-blue[Web Analytics Dashboard] : https://openzh.shinyapps.io/UAStat/
+
+.content-box-blue[Customer Support Analytics Dashboard] : https://openzh.shinyapps.io/anfzh
+
+.content-box-blue[Local Climate Monitoring] : https://openzh.shinyapps.io/Lokalklima/
+
+### Internal Dashboards 
+
+.content-box-red[PlausiApp]
+
+???
+We also use Shiny - here an Overview over some Use-Cases. We use it both for public as well as internal dashboards / Apps.
+
+---
+class: middle, center, inverse
+
+# Methodological Approach
 
 ---
 background-image: url(https://randysrandom.com/wp-content/uploads/outlier.jpg)
@@ -189,9 +217,9 @@ Real life example with two municipalities with high deviations of the submitted 
 
 - However, smaller errors that do not deviate from the expected patterns might sometimes still go undetected
 ---
-class: center, middle
+class: center, middle, inverse
 
-# Demo / Video?
+# Demo
 
 ---
 class: center, middle, inverse
