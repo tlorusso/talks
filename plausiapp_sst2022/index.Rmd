@@ -33,13 +33,15 @@ output:
 
 1. The Statistical Office as Cantonal Vote & Election Center
 
-2. The PlausiApp - Architecture & Methodological Approach
+2. Architecture of the PlausiApp
 
-3. Demo
+3. Methodological Approach
 
-4. Usage by other Cantons (TG & SG)
+4. Demo
 
-5. Outlook 
+5. Usage by other Cantons 
+
+6. Outlook 
 
 ---
 # The Statistical Office
@@ -76,10 +78,10 @@ Why R : We make extensive use of R in the production of our statistics and data 
 ---
 class: middle, center, inverse
 
-# PlausiApp
+# The PlausiApp
 
 ---
-# PlausiApp
+# The PlausiApp
 
 The PlausiApp aims at identifying anomalies in the results on vote sundays. It allows to assess and verify vote results systematically.
 
@@ -216,11 +218,36 @@ Real life example with two municipalities with high deviations of the submitted 
 - Many checks are built in a way to signal even small deviations
 
 - However, smaller errors that do not deviate from the expected patterns might sometimes still go undetected
+
+---
+class: center, middle, inverse
+
+# Re-use by other Cantons
+open source makes it possible!
+
+`r fontawesome::fa("r-project", height="8em")`
+---
+# Re-use by other Cantons
+
+As the PlausiApp is based on the __Open Source__ Programming Language R, we can easily share its Code with other Cantons.
+
+The project is hosted on __gitlab__ `r fontawesome::fa("gitlab", height="1em")` (Access upon request)
+
+Two further Cantons have started using the PlausiApp this year:
+
+- St. Gallen 
+- Thurgau
+
+By learning from the other Cantons experience we aim to improve the App to make its re-use even easier.
+
+
+
+
+
 ---
 class: center, middle, inverse
 
 # Demo
-
 ---
 class: center, middle, inverse
 background-image: url(https://images.unsplash.com/photo-1609669483452-46ce81e443eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2002&q=80)
@@ -232,7 +259,7 @@ background-image: url(https://images.unsplash.com/photo-1609669483452-46ce81e443
 
 - __Continuous minor improvements__
 
-- __Making the PlausiApp accessible to other interested cantons__ 
+- __Making Re-Use of the PlausiApp easier__ 
 
    Cooperation with two Cantons to empower them to use the App ongoing
 

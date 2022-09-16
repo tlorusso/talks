@@ -4,7 +4,7 @@
     <title>PlausiApp</title>
     <meta charset="utf-8" />
     <meta name="author" content="Thomas Lo Russo &amp; Simon Graf  @thlorusso / @simgraworldwide" />
-    <script src="index_files/header-attrs-2.5/header-attrs.js"></script>
+    <script src="index_files/header-attrs-2.10/header-attrs.js"></script>
     <link rel="stylesheet" href="lib/zh_cd_city.css" type="text/css" />
     <link rel="stylesheet" href="lib/hygge.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" type="text/css" />
@@ -30,13 +30,15 @@ class="citation">@statistik_zh</span></a>
 
 1. The Statistical Office as Cantonal Vote &amp; Election Center
 
-2. The PlausiApp - Architecture &amp; Methodological Approach
+2. Architecture of the PlausiApp
 
-3. Demo
+3. Methodological Approach
 
-4. Usage by other Cantons (TG &amp; SG)
+4. Demo
 
-5. Outlook 
+5. Usage by other Cantons 
+
+6. Outlook 
 
 ---
 # The Statistical Office
@@ -73,10 +75,10 @@ Why R : We make extensive use of R in the production of our statistics and data 
 ---
 class: middle, center, inverse
 
-# PlausiApp
+# The PlausiApp
 
 ---
-# PlausiApp
+# The PlausiApp
 
 The PlausiApp aims at identifying anomalies in the results on vote sundays. It allows to assess and verify vote results systematically.
 
@@ -214,11 +216,36 @@ Real life example with two municipalities with high deviations of the submitted 
 - Many checks are built in a way to signal even small deviations
 
 - However, smaller errors that do not deviate from the expected patterns might sometimes still go undetected
+
+---
+class: center, middle, inverse
+
+# Re-use by other Cantons
+open source makes it possible!
+
+<svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:8em;width:9.08em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>
+---
+# Re-use by other Cantons
+
+As the PlausiApp is based on the __Open Source__ Programming Language R, we can easily share its Code with other Cantons.
+
+The project is hosted on __gitlab__ <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M105.2 24.9c-3.1-8.9-15.7-8.9-18.9 0L29.8 199.7h132c-.1 0-56.6-174.8-56.6-174.8zM.9 287.7c-2.6 8 .3 16.9 7.1 22l247.9 184-226.2-294zm160.8-88l94.3 294 94.3-294zm349.4 88l-28.8-88-226.3 294 247.9-184c6.9-5.1 9.7-14 7.2-22zM425.7 24.9c-3.1-8.9-15.7-8.9-18.9 0l-56.6 174.8h132z"/></svg> (Access upon request)
+
+Two further Cantons have started using the PlausiApp this year:
+
+- St. Gallen 
+- Thurgau
+
+By learning from the other Cantons experience we aim to improve the App to make its re-use even easier.
+
+
+
+
+
 ---
 class: center, middle, inverse
 
 # Demo
-
 ---
 class: center, middle, inverse
 background-image: url(https://images.unsplash.com/photo-1609669483452-46ce81e443eb?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2002&amp;q=80)
@@ -230,7 +257,7 @@ background-image: url(https://images.unsplash.com/photo-1609669483452-46ce81e443
 
 - __Continuous minor improvements__
 
-- __Making the PlausiApp accessible to other interested cantons__ 
+- __Making Re-Use of the PlausiApp easier__ 
 
    Cooperation with two Cantons to empower them to use the App ongoing
 
