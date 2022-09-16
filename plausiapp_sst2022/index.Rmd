@@ -1,8 +1,8 @@
 ---
 title: "PlausiApp"
 subtitle: "Anomaly Detection on Vote Sundays <br> with R & Shiny"
-author: 'Thomas Lo Russo & Simon Graf<br> <a href="https://twitter.com/thlorusso" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i>@thlorusso</a> / <a href="https://twitter.com/simgraworldwide" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i>@simgraworldwide</a>'
-date: '27.4.2022<br><br><br><a href="https://twitter.com/statistik_zh" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i>@statistik_zh</a>'
+author: 'Thomas Lo Russo & Simon Graf <br><div class="contact"><a href="https://twitter.com/thlorusso" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i>@thlorusso</a> / <a href="https://twitter.com/simgraworldwide" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i>@simgraworldwide</a></div>'
+date: '27.4.2022'
 output:
   xaringan::moon_reader:
     css: 
@@ -26,8 +26,6 @@ output:
           <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
           </div>
         </div>`
-      # Countdown einfügen
-      #countdown: 60000  # Countdown 1 min pro Slide
 ---
 # Content
 
