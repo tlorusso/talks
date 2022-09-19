@@ -1,8 +1,8 @@
 ---
 title: "PlausiApp"
 subtitle: "Anomaly Detection on Vote Sundays <br> with R & Shiny"
-author: 'Thomas Lo Russo & Simon Graf<br> <a href="https://twitter.com/thlorusso" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i>@thlorusso</a> / <a href="https://twitter.com/simgraworldwide" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i>@simgraworldwide</a>'
-date: '27.4.2022<br><br><br><a href="https://twitter.com/statistik_zh" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i>@statistik_zh</a>'
+author: 'Thomas Lo Russo & Simon Graf<br> <div class="contact"><a href="https://twitter.com/thlorusso" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i>@thlorusso</a> <br> <a href="https://twitter.com/simgraworldwide" style="text-decoration: none; border-bottom:"><i class="fa fa-twitter fa-fw"></i>@simgraworldwide</a></div>'
+date: '27.4.2022<br>'
 output:
   xaringan::moon_reader:
     css: 
@@ -175,7 +175,9 @@ Real life example with two municipalities with high deviations of the submitted 
 - However, smaller errors that do not deviate from the expected patterns might sometimes still go undetected
 ---
 class: center, middle
-<img src="https://memegenerator.net/img/instances/56627652/enough-talk-time-to-demo.jpg" height="400px" />
+
+# Demo / Video?
+
 ---
 class: center, middle, inverse
 background-image: url(https://images.unsplash.com/photo-1609669483452-46ce81e443eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2002&q=80)
