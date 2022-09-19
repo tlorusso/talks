@@ -37,7 +37,7 @@ output:
 
 4. Demo
 
-5. Usage by other Cantons 
+5. Re Use by other Cantons
 
 6. Outlook 
 
@@ -229,14 +229,16 @@ open source makes it possible!
 
 As the PlausiApp is based on the __Open Source__ Programming Language R, we can easily share its Code with other Cantons.
 
-The project is hosted on __gitlab__ `r fontawesome::fa("gitlab", height="1em")` (Access upon request)
+The project is hosted on __gitlab__  (Access upon request):
 
-Two further Cantons have started using the PlausiApp this year:
+`r fontawesome::fa("gitlab", height="1em")` [plausi/plausiapp](https://gitlab.com/plausi/plausiapp)
+
+We cooperate with two further Cantons, which have started using the PlausiApp this year:
 
 - St. Gallen 
 - Thurgau
 
-By learning from the other Cantons experience we aim to improve the App to make its re-use even easier.
+By learning from their experiences, we strive to improve the App and make its re-use even easier.
 
 
 
