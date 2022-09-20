@@ -261,7 +261,7 @@ background-image: url(https://images.unsplash.com/photo-1609669483452-46ce81e443
 
 - __Making Re-Use of the PlausiApp easier__ 
 
-   Cooperation with TG & SG to empower them to use the App ongoing
+   Cooperation with SG & TG to empower them to use the App ongoing
 
 - __Common standard for result verification data exports__ 
 
