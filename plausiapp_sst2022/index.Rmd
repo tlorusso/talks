@@ -35,11 +35,9 @@ output:
 
 3. Methodological Approach
 
-4. Demo
+4. Re Use by other Cantons
 
-5. Re Use by other Cantons
-
-6. Outlook 
+5. Outlook 
 
 ---
 # The Statistical Office
@@ -48,7 +46,7 @@ output:
 
 The Statistical Office provides the population, companies, politicians, the public administration and organisations with __statistics, data and analyses on the Canton of Zurich__. 
 
-Additionally it carries out a role related to political rights. It operates the __cantonal election and voting center__ during ballots. Municipalities count the incoming votes and submit their results to the Statistical Office, which asseses and verifies vote and election results. The Office publishes the verified results  and submits them to the federal level.
+Additionally it carries out a role related to political rights. It operates the __cantonal election and voting center__ during ballots. Municipalities count the incoming votes and submit their results to the Statistical Office, which asseses and verifies vote and election results. The Office submits the verified results to the federal level and publishes them.
 
 ???
 Unlike in many other cantons, where this is often a task of the state chancellery.
@@ -90,58 +88,11 @@ The PlausiApp aims at identifying anomalies in the results on vote sundays. It a
 - Reduce the workload caused by former ad hoc-verification
 - Build confidence in the electoral process
 
-### Statistical plausibility / verification checks on voting Sunday
-
-**Methods**
-
-- Univariate Outlier Detection
-- Simulation of the expected yes-share for each municipality given the overall trends / consent patterns via Machine Learning
-
 ---
 
 # Architecture
 
 ![hier](plausiapp.PNG)
-
-------
-# Shiny at the Statistical Office
-
-https://shiny.rstudio.com/
-
-### Public Dashboards
-
-.content-box-blue[Web Analytics Dashboard] : https://openzh.shinyapps.io/UAStat/
-
-.content-box-blue[Customer Support Analytics Dashboard] : https://openzh.shinyapps.io/anfzh
-
-.content-box-blue[Local Climate Monitoring] : https://openzh.shinyapps.io/Lokalklima/
-
-### Internal Dashboards 
-
-.content-box-red[PlausiApp]
-
-???
-We also use Shiny - here an Overview over some Use-Cases. We use it both for public as well as internal dashboards / Apps.
-
----
-# Shiny at the Statistical Office
-
-https://shiny.rstudio.com/
-
-### Public Dashboards
-
-.content-box-blue[Web Analytics Dashboard] : https://openzh.shinyapps.io/UAStat/
-
-.content-box-blue[Customer Support Analytics Dashboard] : https://openzh.shinyapps.io/anfzh
-
-.content-box-blue[Local Climate Monitoring] : https://openzh.shinyapps.io/Lokalklima/
-
-### Internal Dashboards 
-
-.content-box-red[PlausiApp]
-
-???
-We also use Shiny - here an Overview over some Use-Cases. We use it both for public as well as internal dashboards / Apps.
 
 ---
 class: middle, center, inverse
@@ -197,25 +148,30 @@ predict_votes(votes=c("Eidg1","Kant1"),
 → Deviations between the actual and the predicted yes share may indicate errors.
 
 ---
+# Caveats
 
-# Prediction vs Result
+> The PlausiApp has brought a significant gain in efficiency and allows to detect potentially damaging errors in a highly reliable way, but there are some caveats.
 
 
-![hier](plausiapp2.PNG)
+- Good detection of potentially damaging errors for smaller municipalities
+
+- Our checks signal even small deviations, but smaller relative errors might still sometimes go undetected
+
+- Problematic in the case of large counting districts, where small relative errors can be significant in absolute terms
+
+
 
 ???
-Real life example with two municipalities with high deviations of the submitted results and the prediction. For one of the federal vote topics - deviation from reported result (ban on face covering initiative march 2021). What we do in such cases : get in touch with the municipalities and ask them to check the reported numbers or even recount.
+> The PlausiApp has brought a significant gain in efficiency and allows to detect potentially damaging errors in a highly reliable way, but there are some caveats.
 
----
-# Conclusion
 
-> The PlausiApp has brought a significant gain in efficiency and allows to detect potentially damaging errors in a highly reliable way. 
+- Good detection of potentially damaging errors for smaller municipalities, where errors of higher magnitude are the potentially damaging ones
 
-- The higher the magnitude, the higher the potential distortion of the results and the higher the probability of detection
+- Even if many checks signal even small deviations, smaller relative errors might sometimes go undetected.
 
-- Many checks are built in a way to signal even small deviations
+- In the case of large counting districts (Cities), small relative errors potentially are still significant in absolute terms. The risk is mitigated by the high degree of professionalisation of quality control in larger counting districts.
 
-- However, smaller errors that do not deviate from the expected patterns might sometimes still go undetected
+
 
 ---
 class: center, middle, inverse
@@ -265,7 +221,7 @@ background-image: url(https://images.unsplash.com/photo-1609669483452-46ce81e443
 
 - __Common standard for result verification data exports__ 
 
-  Coordinative efforts to define a common standard (ECH) for result verification data exports, in order that the tool could be used by any canton easily and irrespective of the result software in use.
+  Coordinative efforts to define a common standard (eCH) for result verification data exports, in order that the tool could be used by any canton easily and irrespective of the result software in use.
 
 - __Preparations for the elections 2023__
 
