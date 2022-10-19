@@ -153,12 +153,11 @@ predict_votes(votes=c("Eidg1","Kant1"),
 > The PlausiApp has brought a significant gain in efficiency and allows to detect potentially damaging errors in a highly reliable way, but there are some caveats.
 
 
-- Good detection of potentially damaging errors for smaller municipalities
+- __Good detection__ of potentially damaging errors for __smaller municipalities__
 
-- Our checks signal even small deviations, but smaller relative errors might still sometimes go undetected
+- Our checks signal small deviations, but __smaller relative errors__ might __sometimes still go undetected__
 
-- Problematic in the case of large counting districts, where small relative errors can be significant in absolute terms
-
+➜ __Problematic __in the case of __large counting districts__, where  __small relative errors__ can be significant in __absolute terms__
 
 
 ???
