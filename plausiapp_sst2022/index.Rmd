@@ -139,7 +139,7 @@ The predicted yes-shares are than compared to the values reported by the municip
 → __Deviations may indicate errors.__
 
 
-```{r eval=T, echo=F, warning=F, message=F, fig.width=16, fig.height=2, dpi=250}
+```{r eval=T, echo=F, warning=F, message=F, fig.width=16, fig.height=2, dpi=400}
 
 library(swissdd)
 library(plausi)
