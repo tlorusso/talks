@@ -58,7 +58,7 @@ Unlike in many other cantons, where this is often a task of the state chanceller
 
 .grey[The Statistical Office provides the population, companies, politics, administration and organisations with __statistics, data and analyses on the Canton of Zurich__. 
 
-Additionally it carries out a role related to political rights. It operates the __cantonal election and voting center__ during ballots. Municipalities count the incoming votes and submit their results to the Statistical Office, which .Large[.black[__asseses and verifies vote and election results__]]. The Office publishes the verified results  and submits them to the federal level.]
+Additionally it carries out a role related to political rights. It operates the __cantonal election and voting center__ during ballots. Municipalities count the incoming votes and submit their results to the Statistical Office, which .Large[.black[__asseses and verifies vote and election results__]]. The Office submits the verified results to the federal level and publishes them.]
 
 --
 
@@ -170,39 +170,6 @@ predict_votes(votes=c("Eidg1","Kant1"),
 
 - In the case of large counting districts (Cities), small relative errors potentially are still significant in absolute terms. The risk is mitigated by the high degree of professionalisation of quality control in larger counting districts.
 
-
-
----
-class: center, middle, inverse
-
-# Re-use by other Cantons
-open source makes it possible!
-
-`r fontawesome::fa("r-project", height="8em")`
----
-# Re-use by other Cantons
-
-As the PlausiApp is based on the __Open Source__ Programming Language R, __its code can be freely shared__ with other Cantons.
-
-The project is hosted on gitlab  (Access upon request):
-
-`r fontawesome::fa("gitlab", height="1em")` [plausi/plausiapp](https://gitlab.com/plausi/plausiapp)
-
-We already cooperate with two other Cantons, which have started using the PlausiApp this year:
-
-- St. Gallen 
-- Thurgau
-
-By learning from their experiences, we strive to improve the App and make its re-use easier.
-
-
-
-
-
----
-class: center, middle, inverse
-
-# Demo
 ---
 class: center, middle, inverse
 background-image: url(https://images.unsplash.com/photo-1609669483452-46ce81e443eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2002&q=80)
@@ -214,9 +181,9 @@ background-image: url(https://images.unsplash.com/photo-1609669483452-46ce81e443
 
 - __Continuous minor improvements__
 
-- __Making Re-Use of the PlausiApp easier__ 
+- __Re-Use of the PlausiApp by other Cantons__ 
 
-   Cooperation with SG & TG to empower them to use the App ongoing
+   Cooperation with St. Gallen and Thurgau ongoing
 
 - __Common standard for result verification data exports__ 
 
@@ -254,6 +221,27 @@ class: center, middle, inverse
 <a href="https://github.com/statistikZH"><i class="fa fa-github fa-fw"></i>Statistisches Amt Kanton Zürich</a><br> 
 <a href="mailto:datashop@statistik.zh.ch"><i class="fa fa-paper-plane fa-fw"></i>datashop@statistik.zh.ch</a><br>
 
+---
+class: center, middle, inverse
 
+# Re-use by other Cantons
+open source makes it possible!
+
+`r fontawesome::fa("r-project", height="8em")`
+---
+# Re-use by other Cantons
+
+As the PlausiApp is based on the __Open Source__ Programming Language R, __its code can be freely shared__ with other Cantons.
+
+The project is hosted on gitlab  (Access upon request):
+
+`r fontawesome::fa("gitlab", height="1em")` [plausi/plausiapp](https://gitlab.com/plausi/plausiapp)
+
+We already cooperate with two other Cantons, which have started using the PlausiApp this year:
+
+- St. Gallen 
+- Thurgau
+
+By learning from their experiences, we strive to improve the app and make its re-use easier.
 
 
