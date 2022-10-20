@@ -134,9 +134,9 @@ We use the Median absolute deviation as a measure (robust / ideal for small samp
 
 Once a __handful of municipalities (5) have completed the count__, a prediction of the final results for all areas can be made. Our prediction functions rely on the [__caret package__](https://topepo.github.io/caret/).
 
-The prediction of the yes-shares is than compared to the values reported by the municipalities.
+The predicted yes-shares are than compared to the values reported by the municipalities.
 
-→ __Deviations between the actual and the predicted yes share may indicate errors.__
+→ __Deviations may indicate errors.__
 
 
 ```{r eval=T, echo=F, warning=F, message=F, fig.width=16, fig.height=4, dpi=250}
