@@ -136,21 +136,14 @@ We use the Median absolute deviation as a measure (robust / ideal for small samp
 
 # Prediction of Approval Patterns
 
-Once a handful of municipalities have completed the count, a prediction of the final results (% of Yes Votes) for all areas can be made. 
+Once a __handful of municipalities (5) have completed the count__, a prediction of the final results for all areas can be made. 
+
+The prediction of the yes-shares is than compared to the values reported by the municipalities.
+
+→ __Deviations between the actual and the predicted yes share may indicate errors.__
 
 
-```r
-library(plausi)
-
-predict_votes(votes=c("Eidg1","Kant1"), 
-              train=votedata, 
-              exclude_votes=TRUE)
-```
-→ All the via [caret package](http://topepo.github.io/caret/index.html) available algorithms can be used.
-
-**Comparison : Prediction VS Actual Result**
-
-→ Deviations between the actual and the predicted yes share may indicate errors.
+![](index_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
 
 ---
 # Caveats

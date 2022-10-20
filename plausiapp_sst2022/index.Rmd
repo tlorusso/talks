@@ -132,20 +132,58 @@ We use the Median absolute deviation as a measure (robust / ideal for small samp
 
 # Prediction of Approval Patterns
 
-Once a handful of municipalities have completed the count, a prediction of the final results (% of Yes Votes) for all areas can be made. 
+Once a __handful of municipalities (5) have completed the count__, a prediction of the final results for all areas can be made. 
 
-```{r eval=FALSE}
+The prediction of the yes-shares is than compared to the values reported by the municipalities.
+
+→ __Deviations between the actual and the predicted yes share may indicate errors.__
+
+
+```{r eval=T, echo=F, warning=F, message=F, fig.width=16, fig.height=4, dpi=250}
+
+library(swissdd)
 library(plausi)
+library(tidyverse)
 
-predict_votes(votes=c("Eidg1","Kant1"), 
-              train=votedata, 
-              exclude_votes=TRUE)
+results <- swissdd::get_nationalvotes()
+
+# Formattiere historische Daten um : eine Spalte je Vorlage
+testdata <- results %>%
+  filter(canton_id==1) %>% 
+  mutate(id=paste0("v",id)) %>%
+  select(jaStimmenInProzent, id, mun_id, mun_name) %>%
+  pivot_wider(names_from=id, values_from = jaStimmenInProzent) %>% 
+  drop_na()
+
+
+predictions <- predict_votes(colnames(testdata)[c(-1,-2)][c(2)], 
+                             train=testdata, 
+                             method = "svmRadial",
+                             testprop = 0.3,
+                             geovars=c("mun_id","mun_name"))
+
+
+gem_pred <- predictions %>% 
+  mutate(error=real-pred) %>% 
+  group_by(vorlage) %>% 
+  mutate(rmse=RMSE(pred,real)) %>% 
+  mutate(error_rmse=error/rmse) %>% 
+  mutate(outlier=abs(error_rmse)>3)
+
+
+ggplot(gem_pred, aes(vorlage, error))+
+  geom_jitter(aes(color=outlier))+
+  geom_violin(alpha=0.5)+
+  scale_color_viridis_d()+
+  scale_y_continuous(limits = c(-8,8), breaks=c(-5,-2.5,0,2.5,5), labels=c("-5","-2.5","0","2.5","5"))+
+  theme_minimal()+
+  coord_flip()+
+  labs(title="Example : Deviation between predicted yes-Shares and reported values",
+       subtitle="Votetopic : Erhöhung Mehrwertsteuer für AHV (05.09.2022)",
+       x="",
+       y="Deviation Prediction / Reported Result"
+       )
 ```
-→ All the via [caret package](http://topepo.github.io/caret/index.html) available algorithms can be used.
-
-**Comparison : Prediction VS Actual Result**
-
-→ Deviations between the actual and the predicted yes share may indicate errors.
 
 ---
 # Caveats
