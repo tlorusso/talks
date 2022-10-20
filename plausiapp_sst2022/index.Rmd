@@ -184,7 +184,6 @@ ggplot(gem_pred, aes(vorlage, error))+
        x="",
        y="Deviation Prediction / Reported Result in Percentage Points"
        )
-
 ```
 
 ---
@@ -283,4 +282,3 @@ We already cooperate with two other Cantons, which have started using the Plausi
 - Thurgau
 
 By learning from their experiences, we strive to improve the app and make its re-use easier.
-
