@@ -35,10 +35,11 @@ output:
 
 3. Methodological Approach
 
-4. Re Use by other Cantons
+4. Outlook 
+---
+class: middle, center, inverse
 
-5. Outlook 
-
+# The Statistical Office as Cantonal Vote & Election Center
 ---
 # The Statistical Office
 
@@ -56,7 +57,7 @@ Unlike in many other cantons, where this is often a task of the state chanceller
 
 [zh.ch/statistisches-amt]()
 
-.grey[The Statistical Office provides the population, companies, politics, administration and organisations with __statistics, data and analyses on the Canton of Zurich__. 
+.grey[The Statistical Office provides the population, companies, politicians, the public administration and organisations with __statistics, data and analyses on the Canton of Zurich__. 
 
 Additionally it carries out a role related to political rights. It operates the __cantonal election and voting center__ during ballots. Municipalities count the incoming votes and submit their results to the Statistical Office, which .Large[.black[__asseses and verifies vote and election results__]]. The Office submits the verified results to the federal level and publishes them.]
 
@@ -115,7 +116,7 @@ __In relation to the past:__
 
 __In relation to other municipalities:__
 
-- Ranking of the Participation (%) of <br>the various vote issues
+- Participation (%) of the various vote issues
 - Share of ballots which are:
   - empty
   - invalid (with no clear vote intention)
@@ -196,7 +197,7 @@ ggplot(gem_pred, aes(vorlage, error))+
 
 - Our checks signal small deviations, but __smaller relative errors__ might __sometimes still go undetected__
 
-➜ __Problematic __in the case of __large counting districts__, where  __small relative errors__ can be significant in __absolute terms__
+➜ __Problematic __in the case of __large counting districts__, where  __small relative errors__ can be significant in __absolute terms__. However, the risk is mitigated by the high degree of professionalization of quality control in larger municipalities.
 
 
 ???
@@ -207,7 +208,7 @@ ggplot(gem_pred, aes(vorlage, error))+
 
 - Even if many checks signal even small deviations, smaller relative errors might sometimes go undetected.
 
-- In the case of large counting districts (Cities), small relative errors potentially are still significant in absolute terms. The risk is mitigated by the high degree of professionalisation of quality control in larger counting districts.
+- In the case of large counting districts (Cities), small relative errors potentially are still significant in absolute terms. The risk is mitigated by the high degree of professionalization of quality control in larger counting districts.
 
 ---
 class: center, middle, inverse
@@ -282,5 +283,4 @@ We already cooperate with two other Cantons, which have started using the Plausi
 - Thurgau
 
 By learning from their experiences, we strive to improve the app and make its re-use easier.
-
 
