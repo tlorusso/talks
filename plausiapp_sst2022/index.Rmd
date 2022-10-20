@@ -139,7 +139,7 @@ The predicted yes-shares are than compared to the values reported by the municip
 → __Deviations may indicate errors.__
 
 
-```{r eval=T, echo=F, warning=F, message=F, fig.width=16, fig.height=4, dpi=250}
+```{r eval=T, echo=F, warning=F, message=F, fig.width=16, fig.height=2, dpi=250}
 
 library(swissdd)
 library(plausi)
@@ -178,10 +178,10 @@ ggplot(gem_pred, aes(vorlage, error))+
   scale_y_continuous(limits = c(-8,8), breaks=c(-5,-2.5,0,2.5,5), labels=c("-5","-2.5","0","2.5","5"))+
   theme_minimal()+
   coord_flip()+
-  labs(title="Example : Deviation between predicted yes-Shares and reported values",
+  labs(title="Example : Deviation between predicted yes-shares and reported values",
        subtitle="Votetopic : Erhöhung Mehrwertsteuer für AHV (05.09.2022)",
        x="",
-       y="Deviation Prediction / Reported Result"
+       y="Deviation Prediction / Reported Result in Percentage Points"
        )
 ```
 
