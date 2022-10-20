@@ -174,7 +174,7 @@ gem_pred <- predictions %>%
 ggplot(gem_pred, aes(vorlage, error))+
   geom_violin(alpha=0.5)+
    geom_jitter(aes(color=outlier))+
-  scale_color_manual(values=c("#002338","#e76c7b"))+
+  scale_color_manual(values=c("#002338","#F08D47"))+
   scale_y_continuous(limits = c(-8,8), breaks=c(-5,-2.5,0,2.5,5), labels=c("-5","-2.5","0","2.5","5"))+
   theme_minimal()+
   coord_flip()+
