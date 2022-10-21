@@ -84,7 +84,7 @@ class: middle, center, inverse
 <br>
 
 <img src="https://images.unsplash.com/photo-1607390351624-2a97487f50da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3VuYmF0aHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" width="300px"/>
-<small><a href="https://unsplash.com/@djswingkid"> picture : @djswingkid</a> </small>
+<small><a href="https://unsplash.com/@djswingkid"> picture: @djswingkid</a> </small>
 
 ]
 
